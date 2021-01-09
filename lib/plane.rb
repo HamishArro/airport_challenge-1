@@ -1,13 +1,14 @@
-require 'airport.rb'
+require_relative './airport.rb'
 
 class Plane
 
   def land(airport)
-
+    @airport = airport
+    @airport.add_plane(self)
   end
 
   def take_off
-    "plane is no longer in the airport"
+    @airport.remove_plane(self)
   end
 
 end

@@ -12,6 +12,12 @@ describe Plane do
       expect(subject).to respond_to(:land).with(1).arguments
     end
 
+    it "should raise an error if airport is full" do
+      airport = Airport.new
+      20.times { Plane.new.land(airport) }
+      expect(Plane.new.land(airport)).to raise_error("airport is at full capacity")
+    end
+
   end
 
   describe " #take_off" do
@@ -21,7 +27,9 @@ describe Plane do
     end
 
     it "should confirm that plane has departed" do
-      expect(subject.take_off).to eq "plane is no longer in the airport"
+      plane = Plane.new
+      plane.land(Airport.new)
+      expect(plane.take_off).to eq "plane is no longer in the airport"
     end
 
   end
