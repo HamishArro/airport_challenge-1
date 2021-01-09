@@ -7,8 +7,13 @@ describe Airport do
     expect { subject.add_plane("plane") }.to raise_error("airport is at full capacity")
   end
 
-  it 'has a default capacity' do
+  it "has a default capacity" do
     expect(subject.capacity).to eq Airport::DEFAULT_CAPACITY
+  end
+
+  it "capacity should be changeable" do
+    airport = Airport.new(25)
+    expect(airport.capacity).to eq 25
   end
 
 end
