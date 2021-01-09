@@ -14,7 +14,6 @@ attr_reader :capacity
 
   def remove_plane(plane)
     @planes.delete(plane)
-    "plane is no longer in the airport"
   end
 
 end

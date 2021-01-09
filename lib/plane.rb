@@ -9,6 +9,8 @@ class Plane
 
   def take_off
     @airport.remove_plane(self)
+    @airport = nil
+    "plane is no longer in the airport"
   end
 
 end
