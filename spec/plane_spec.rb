@@ -21,7 +21,7 @@ describe Plane do
     end
 
     it "should confirm that plane has departed" do
-      expect(suject.take_off).to eq "plane is no longer in the airport"
+      expect(subject.take_off).to eq "plane is no longer in the airport"
     end
 
   end
