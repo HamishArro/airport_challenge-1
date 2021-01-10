@@ -20,4 +20,8 @@ attr_reader :capacity
     rand(1..100) <= 75 ? "sunny" : "stormy"
   end
 
+  def in_airport?(plane)
+    @planes.include?(plane) ? "plane is in airport" : "plane is no longer in the airport"
+  end
+
 end
