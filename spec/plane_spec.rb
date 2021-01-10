@@ -26,6 +26,12 @@ describe Plane do
       expect(plane.take_off).to eq "plane is no longer in the airport"
     end
 
+    it "shouldn't let planes take_off when weather is stormy" do
+      plane = Plane.new.land(Airport.new)
+      allow(plane).to receive(:weather?).and_return("stormy")
+      expect(plane.take_off).to raise_error("plane can't depart due to stormy weather")
+    end
+
   end
 
 end

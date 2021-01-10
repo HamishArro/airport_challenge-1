@@ -16,4 +16,9 @@ attr_reader :capacity
     @planes.delete(plane)
   end
 
+  def weather?
+    types = ["sunny", "stormy"]
+    rand(1..100) <= 75 ? types[0] : types[1]
+  end
+
 end
