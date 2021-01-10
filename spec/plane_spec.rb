@@ -13,9 +13,9 @@ describe Plane do
     end
 
     it "shouldn't let planes land when weather is stormy" do
-      subject.land(airport = Airport.new)
+      airport = Airport.new
       allow(airport).to receive(:rand).and_return(90)
-      expect { subject.land }.to raise_error("plane can't land due to stormy weather")
+      expect { subject.land(airport) }.to raise_error("plane can't land due to stormy weather")
     end
 
   end
