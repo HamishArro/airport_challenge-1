@@ -17,8 +17,7 @@ attr_reader :capacity
   end
 
   def weather?
-    types = ["sunny", "stormy"]
-    rand(1..100) <= 75 ? types[0] : types[1]
+    rand(1..100) <= 75 ? "sunny" : "stormy"
   end
 
 end

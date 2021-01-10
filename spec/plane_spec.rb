@@ -21,15 +21,15 @@ describe Plane do
     end
 
     it "should confirm that plane has departed" do
-      plane = Plane.new
-      plane.land(Airport.new)
-      expect(plane.take_off).to eq "plane is no longer in the airport"
+      subject.land(airport = Airport.new)
+      allow(airport).to receive(:rand).and_return(10)
+      expect(subject.take_off).to eq "plane is no longer in the airport"
     end
 
     it "shouldn't let planes take_off when weather is stormy" do
-      plane = Plane.new.land(Airport.new)
-      allow(plane).to receive(:weather?).and_return("stormy")
-      expect(plane.take_off).to raise_error("plane can't depart due to stormy weather")
+      subject.land(airport = Airport.new)
+      allow(airport).to receive(:rand).and_return(90)
+      expect { subject.take_off }.to raise_error("plane can't depart due to stormy weather")
     end
 
   end
