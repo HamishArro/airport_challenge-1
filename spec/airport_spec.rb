@@ -16,4 +16,9 @@ describe Airport do
     expect(airport.capacity).to eq 25
   end
 
+  it "should raise an error if the plane isn't in the airport" do
+    airport = Airport.new
+    expect { airport.remove_plane(1) }.to raise_error("plane cannot be removed as it isn't in the airport")
+  end
+
 end

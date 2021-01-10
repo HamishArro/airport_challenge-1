@@ -1,6 +1,6 @@
 class Airport
 DEFAULT_CAPACITY = 60
-attr_reader :capacity
+attr_reader :capacity, :planes
 
   def initialize(capacity = DEFAULT_CAPACITY)
     @capacity = capacity
@@ -10,10 +10,11 @@ attr_reader :capacity
   def add_plane(plane)
     raise "airport is at full capacity" if @planes.count >= @capacity
     @planes << [plane]
+    @planes.count - 1
   end
 
   def remove_plane(plane)
-    @planes.delete(plane)
+    @planes.delete_at(plane)
   end
 
   def weather?
@@ -21,7 +22,7 @@ attr_reader :capacity
   end
 
   def in_airport?(plane)
-    @planes.include?(plane) ? "plane is in airport" : "plane is no longer in the airport"
+    @planes[plane] != nil ? "plane is in airport" : "plane is no longer in the airport"
   end
 
 end
