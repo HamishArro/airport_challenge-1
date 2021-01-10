@@ -12,6 +12,12 @@ describe Plane do
       expect(subject).to respond_to(:land).with(1).arguments
     end
 
+    it "shouldn't let planes land when weather is stormy" do
+      subject.land(airport = Airport.new)
+      allow(airport).to receive(:rand).and_return(90)
+      expect { subject.land }.to raise_error("plane can't land due to stormy weather")
+    end
+
   end
 
   describe " #take_off" do
