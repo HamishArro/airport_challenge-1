@@ -3,6 +3,7 @@ require_relative './airport.rb'
 class Plane
 
   def land(airport)
+    raise "plane can't land due to stormy weather" if @airport.weather? == "stormy"
     @airport = airport
     @airport.add_plane(self)
   end
