@@ -3,6 +3,8 @@ require 'plane'
 describe Plane do
 
   describe " #land" do
+    
+    # Rebundant test 'it "should be able to land" do' as land is actively tested in ' it "shouldn't let planes land when weather is stormy" do'
 
     it "should be able to land" do
       expect(subject).to respond_to :land
@@ -11,7 +13,7 @@ describe Plane do
     it "should accept aiport" do
       expect(subject).to respond_to(:land).with(1).arguments
     end
-
+    
     it "shouldn't let planes land when weather is stormy" do
       airport = Airport.new
       allow(airport).to receive(:rand).and_return(90)
