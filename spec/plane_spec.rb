@@ -4,7 +4,7 @@ describe Plane do
 
   describe " #land" do
     
-    # Rebundant test 'it "should be able to land" do' as land is actively tested in ' it "shouldn't let planes land when weather is stormy" do'
+    # Rebundant test 'it "should be able to land" do' as land is actively tested in 'it "shouldn't let planes land when weather is stormy" do'
 
     it "should be able to land" do
       expect(subject).to respond_to :land
@@ -23,6 +23,8 @@ describe Plane do
   end
 
   describe " #take_off" do
+    
+    # Rebundant test 'it "should be able to depart" do' as take off is actively tested in 'it "shouldn't let planes take_off when weather is stormy" do'
 
     it "should be able to depart" do
       expect(subject).to respond_to :take_off
